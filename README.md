@@ -1,4 +1,4 @@
-# NowPlaying
+# NowPlaying ![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/dist/img/favicon.png "Logo")
 ##### by David Camargo
 ---
 A small app that shows tweets with the hashtag #nowplaying including a youtube link.
