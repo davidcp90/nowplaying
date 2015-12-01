@@ -29,13 +29,16 @@ Now you only need to go to http://localhost:3000 to see the app.
 
 ### Todos
 
- - ~~Write the MarkDown~~
- - Install dependencies
- - App Skeleton
+ - ~~Write the README~~
+ - ~~Install dependencies~~
+ - ~~Automation with gulp~~
+ - ~~Server Up~~
+ - ~~App Skeleton~~
  - UI development
  - Services development
  - Angular app
  - Test the app
+ - App Documentation
 
 License
 ----
