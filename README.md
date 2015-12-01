@@ -2,8 +2,19 @@
 ##### by David Camargo
 ---
 A small app that shows tweets with the hashtag #nowplaying including a youtube link.
-### Version
-0.1
+### Todos
+
+ - ~~Write the README~~
+ - ~~Install dependencies~~
+ - ~~Automation with gulp~~
+ - ~~Server Up~~
+ - ~~App Skeleton~~
+ - UI development
+ - Services development
+ - Angular app
+ - Test the app
+ - App Documentation
+
 
 ### Tech
 
@@ -27,24 +38,22 @@ $ node server.js
 ```
 Now you only need to go to http://localhost:3000 to see the app.
 
-### Todos
+### Development
+***
+#####Gulp Build
+To make the build just run (you need gulp installed globally)
+```sh
+$ gulp watch
+```
 
- - ~~Write the README~~
- - ~~Install dependencies~~
- - ~~Automation with gulp~~
- - ~~Server Up~~
- - ~~App Skeleton~~
- - UI development
- - Services development
- - Angular app
- - Test the app
- - App Documentation
 
 License
 ----
 
 MIT
 
+### Version
+0.1
 
 
 
