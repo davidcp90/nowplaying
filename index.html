@@ -15,14 +15,59 @@
     <script src="bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <section ng-controller="ShareController">
-   </section>
+  <body class="preloader">
+    <section class="jumbotron rock-bg" ng-controller="ShareController">
+      <h1 class="text-center" id="head-title">#NowPlaying</h1>
+      <h2 class="text-center tx-wh" id="slogan"><i>'Cause everyone is having a personal concert right now.</i></h2>
+      <h3 class="text-center" id="share-title"><i class="fa fa-headphones"></i> Share yours:</h3>
+      <input type="text" class="cool-input" placeholder="Enter youtube url" ng-model="youtube">
+      <textarea name="comment" placeholder="Enter your comment (ex. My first song working for bunny.inc)" id="comment" cols="70" rows="2" class="cool-text" ng-model="comment"></textarea>
+      <a href="javascript:void(0);" role="button" class="btn btn-info center-btn" ng-click="postTweet();" id="tweet-cta"><i class="fa fa-twitter"></i> Tweet to #nowplaying</a>
+      <a href="#title-tweets" class="text-muted tx-link-center">... or WATCH other personal concerts <br/><i class="fa fa-chevron-circle-down"></i></a>
+      <div class="clearfix"></div>
+    </section>
     <section id="tweets" ng-controller="TweetsController">
       <div class="container">
         <div class="row">
         <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
-         </div>
+          <h2 class="text-success text-center" id="title-tweets">#NowPlaying Latest Personal Concerts:</h2>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>PHINEHAS "My Horses Are Many" Official Music Video</h3>
+              <div class="col-md-7">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe src="https://www.youtube.com/embed/SN4z_-R7poE" allowfullscreen class="embed-responsive-item"></iframe>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <picture class="col-xs-2 col-md-1">
+                  
+              </picture>
+              <div class="col-xs-8 col-xs-9"><h5>John Doe</h5><a href="http://www.twitter.com" class="username">@johndoe</a> </div>
+              <div class="col-xs-2"><i class="fa fa-twitter"></i>Follow</div>
+              #NowPlaying Red Cord Records official music video for "My Horses Are Many" by Phinehas "thegodmachine" Available NOW!
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>PHINEHAS "My Horses Are Many" Official Music Video</h3>
+              <div class="col-md-7">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe src="https://www.youtube.com/embed/SN4z_-R7poE" allowfullscreen class="embed-responsive-item"></iframe>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <picture class="col-xs-2 col-md-1">
+                  
+              </picture>
+              <div class="col-xs-8 col-xs-9"><h5>John Doe</h5><a href="http://www.twitter.com" class="username">@johndoe</a> </div>
+              <div class="col-xs-2"><i class="fa fa-twitter"></i>Follow</div>
+              #NowPlaying Red Cord Records official music video for "My Horses Are Many" by Phinehas "thegodmachine" Available NOW!
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </section>
