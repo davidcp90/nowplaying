@@ -47,9 +47,9 @@ $ gulp watch
 ```
 
 ###Screenshots
-Stage Desktop:
+Stage Desktop: ..
 ![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-desktop.png "Stage Desktop")
-Stage Mobile:
+Stage Mobile: ..
 ![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-rwd.png "Stage Mobile")
 ###License
 ----
