@@ -14,5 +14,13 @@ $("#go-to-tweets").click(function(e) {
     e.stopPropagation();
    scrollToAnchor($(this).attr('href'));
 });
+$(window).on('scroll', function() {
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = $(document).height();
+    scroll_pos_test=scroll_pos_test-500;
+    if(y_scroll_pos > scroll_pos_test) {
+        $('#watch-more').click();
+    }
+});
     })
 })

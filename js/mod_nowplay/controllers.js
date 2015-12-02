@@ -12,15 +12,36 @@ define(function (require){
           the app to get and show tweets
           --------------------------------------------------------------------------*/
           var s=$scope;
-          var new_tweet = new Object();
-          s.tweets=[];
-          socket.on('stream', function(tweet,yt){
-            new_tweet.raw = tweet;
-           new_tweet.youtube = yt;
-           console.log(new_tweet);
-           s.tweets.push(new_tweet);
+          var count=0;
+          s.counter=count;
+          socket.on('stream', function(tweet,yt_id){
+            if(count==0){
+              
+            }
+           console.log(tweet);
+           var new_tweet=$('#template').clone()
+           new_tweet.attr('tweet'+yt_id);
+           new_tweet.find('.embed-responsive iframe').attr('src','https://www.youtube.com/embed/'+yt_id);
+           new_tweet.find('.tw-p').html(tweet.text);
+           new_tweet.find('picture').append('<img class="img-responsive img-circle" src="'+tweet.user.profile_image_url+'" alt=photo "'+tweet.user.name+'"/>');
+           new_tweet.find('.user-name').html(tweet.user.name);
+           new_tweet.find('.date-stamp').html(tweet.created_at);
+           new_tweet.find('.username').html('@'+tweet.user.screen_name);
+           new_tweet.appendTo('#tw-container').removeClass('hide');
+           count++;
+           tweet=null;
+
+           yt_id=null;
+           if(s.count==10){
+            socket.disconnect(); 
+            $('#prefetcher').fadeOut('fast');
+            s.count=0;
+           }
          });
-        }]).
+          s.reconnect=function(){
+            socket.connect();
+          }
+   }]).
   controller('ShareController', ['$scope', 'TweetService',
     function($scope, TweetService){
           /*-----------------------------------------------------------------------
@@ -98,5 +119,8 @@ define(function (require){
         });
       }
     };
+  }])
+.controller('TweetController',['$scope',
+  function  ($scope) {
   }])
 })

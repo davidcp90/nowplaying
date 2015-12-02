@@ -15,7 +15,7 @@
     <script src="bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body >
+  <body>
     <section class="jumbotron rock-bg" ng-controller="ShareController">
       <h1 class="text-center" id="head-title">#NowPlaying</h1>
       <h2 class="text-center tx-wh" id="slogan"><i>'Cause everyone is having a personal concert right now.</i></h2>
@@ -31,7 +31,41 @@
         <div class="row">
           <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
             <h2 class="text-success text-center" id="title-tweets">#NowPlaying Latest Personal Concerts:</h2>
-
+              <div id="tw-container">
+                <div class="panel panel-default hide" id="template">
+                <div class="panel-body">
+                  <!--Urls doesnt have a title <h3></h3>-->
+                  <div class="col-md-7">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe src="" allowfullscreen class="embed-responsive-item"></iframe>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <picture class="col-xs-3 col-md-2 no-pad-l-r">
+                      
+                    </picture>
+                    <div class="col-xs-6 col-md-7"><h5 class="user-name">John Doe</h5><a href="http://www.twitter.com" class="username">@johndoe</a> </div>
+                    <div class="col-xs-3 col-md-3">
+                      <a href="" class="follow"><i class="fa fa-twitter"></i> Follow</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <p class="tw-p"></p>
+                    <span class="col-xs-4 text-left no-pad-left date-stamp" ></span>
+                    <div class="col-xs-8 text-right no-pad-">
+                      <a href=""><i class="fa fa-reply"></i> Reply  </a>
+                      <a href=""><i class="fa fa-retweet"></i> Retweet  </a>
+                      <a href=""><i class="fa fa-star"></i> Favorite  </a>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+                          <div id="prefetcher">
+              <i class="fa fa-spin fa-spinner"></i>
+              Fetching Tweets...
+            </div>
+            <!--This button is util as a fallback to the scroll and as a trigger-->
+            <a href="javascript:voi(0);" class="btn btn-info center-btn" ng-click="reconnect();" id="watch-more">Watch More...</a>
           </div>
         </div>
       </div>

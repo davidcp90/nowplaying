@@ -10,7 +10,9 @@ define(function  (require) {
                  templateUrl: function(elem,attrs) {
                    return '/js/mod_nowplay/partialviews/tweet.html';
                 },
+                            controller: 'TweetController',
             }
+
         })
 
 });
