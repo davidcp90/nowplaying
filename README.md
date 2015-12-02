@@ -51,6 +51,7 @@ $ gulp watch
 -Infinite scrolling ( I have the jquery function to do it in init-dom.js, but i didnt finished)
 -Improve performance
 -Unit and E2E tests
+-Solve the bug with the JSON formating in order to use angular directives and not the jquery hotfix that i made to render the fetched tweets 
 -Add functionality to reply , retweet , favorite and follow buttons
 
 ###Screenshots
