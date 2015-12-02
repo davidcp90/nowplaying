@@ -46,8 +46,12 @@ To make the build just run (you need gulp installed globally)
 $ gulp watch
 ```
 
-
-License
+###Screenshots
+Stage Desktop:
+![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-desktop.png "Stage Desktop")
+Stage Mobile:
+![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-rwd.png "Stage Mobile")
+###License
 ----
 
 MIT
