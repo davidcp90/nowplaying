@@ -47,10 +47,15 @@ $ gulp watch
 ```
 
 ###Screenshots
-Stage Desktop: ..
-![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-desktop.png "Stage Desktop")
-Stage Mobile: ..
+Stage Desktop:  
+![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-desktop.png "Stage Desktop")  
+Stage Mobile:  
 ![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/stage-rwd.png "Stage Mobile")
+Tweet Succesfuly Posted:  
+![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/tweet-success.png "Tweet Success")  
+![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/tweet-success-twitter.png "Tweet Success on Twitter")
+Post Anatomy:  
+![alt text](https://raw.githubusercontent.com/davidcp90/nowplaying/master/screenshots/post.png "Post")
 ###License
 ----
 

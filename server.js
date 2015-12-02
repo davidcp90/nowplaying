@@ -6,10 +6,10 @@ var Twit = require('twit');
 var io = require('socket.io')(http);
 //Twit Configuration
 var T = new Twit({
-    consumer_key:'TrLAeCRrU2tEyRVNATWkaPXaT',
-    consumer_secret: 'PW4XQYJOiybEiVrgFrmYEsNRo1Gu7fk6y82qjfRTXs3o8UTfQU', 
-    access_token:'4329597197-HCDI7jcRpDvDzH3SgRK7AvVsOJgNLN6b74c6TfP',
-    access_token_secret: 'XARevxyZTC6ssQdoZkQBOKAYCGhfhDFCRgaV5EW9jc8xh'
+  consumer_key:'CXVNsTDohsJaIxl0cjpuLKXYr',
+  consumer_secret: 'Y49dNi2NPN9vJaPS95QnRLslOqisEuC7v934lHOfN05cVjbtDB', 
+  access_token:'2834545563-QYQqm8hnLPiU3eFyAD8SGtKhfIYW7gMp8fGh8Xd',
+  access_token_secret: 'SUquQt3XC2ve3IIa8JbwMa4bsRCpZSJuCVKYAXLUTDBBT'
 });
 //Expose directories
 app.use('/dist', express.static(__dirname + '/dist'));
@@ -25,28 +25,32 @@ app.get('/caramba', function(req, res){
   console.log(data);
 });
 });
-//POST  tweet Method
+//Post  tweet Method
 app.get('/tweet-it', function(req, res){
-var tw_msg=req.query.message;
+  var tw_msg=req.query.message;
 
-T.post('statuses/update', { status: tw_msg }, function(err, data, response) {
-  console.log('errors'+err);
-  console.log('data'+data);
-  console.log('response'+response);
-  if(err){
-    res.send(err);
-  }
-  else{
-    res.send(data);
-  }
-});
+  T.post('statuses/update', { status: tw_msg }, function(err, data, response) {
+    console.log('errors'+err);
+    console.log('data'+data);
+    console.log('response'+response);
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.send(data);
+    }
+  });
 
 });
+//Get tweet streams
 io.on('streamtw', function(socket){
   socket.on('disconnect', function(){
-    console.log('user disconnected');
+    console.log('stream stopped');
   });
-  console.log('a user connected');
+  var stream = T.stream('statuses/filter', { track: '#apple', language: 'en' })
+  stream.on('tweet', function (tweet) {
+    console.log(tweet)
+  })
 });
 http.listen(3000, function(){
   console.log('#nowplaying is running on http://localhost:3000');
