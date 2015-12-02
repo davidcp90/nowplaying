@@ -5,6 +5,7 @@ require.config({
   'angular':'../bower_components/angular/angular.min',
   'angularAMD':'../bower_components/angularAMD/angularAMD.min',
   'app': 'mod_nowplay/app',
+  'socket.io': '../bower_components/socket.io-client/socket.io',
   'controllers': 'mod_nowplay/controllers',
   'services': 'mod_nowplay/services',
   'directives': 'mod_nowplay/directives',
@@ -14,6 +15,9 @@ require.config({
 shim:{
   'jquery':{
     exports:'jQuery'
+  },
+  'socket.io':{
+    exports:'socket.io'
   },
   'init_dom':['jquery'],
   'angular': {
@@ -27,5 +31,5 @@ shim:{
   'angular-route':['angular'],
   'app':['controllers', 'services', 'directives','angular'],
 },
-deps:['app','jquery','init_dom']
+deps:['app','jquery','socket.io','init_dom']
 });

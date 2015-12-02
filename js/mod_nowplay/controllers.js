@@ -1,6 +1,8 @@
 define(function (require){
   'use strict';
   var angular = require('angular');
+  var io = require('socket.io');
+  var socket = io();
   return angular.module('mod_nowplay.controllers', []).
   controller('TweetsController', ['$scope', 'TweetService',
     function($scope, TweetService){
@@ -9,6 +11,15 @@ define(function (require){
           This controls the module for the tweets stream, allowing 
           the app to get and show tweets
           --------------------------------------------------------------------------*/
+          var s=$scope;
+          var new_tweet = new Object();
+          s.tweets=[];
+          socket.on('stream', function(tweet,yt){
+            new_tweet.raw = tweet;
+           new_tweet.youtube = yt;
+           console.log(new_tweet);
+           s.tweets.push(new_tweet);
+         });
         }]).
   controller('ShareController', ['$scope', 'TweetService',
     function($scope, TweetService){
@@ -73,7 +84,7 @@ define(function (require){
     };
      /*this function handles the ng-click of the main-cta, results in a error report on the main cta
      or in a succesful tweet */
-    s.postTweet = function(){
+     s.postTweet = function(){
       if(s.checkTweet()){
         var wait='<i class="fa fa-spinner fa-spin"></i> Wait for it...';
         changeCta('btn-warning',wait,false);

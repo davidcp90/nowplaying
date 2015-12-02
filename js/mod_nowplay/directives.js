@@ -4,13 +4,12 @@ define(function  (require) {
    var angular = require('angular');
 
    return angular.module('mod_nowplay.directives', [])
-        .directive('resources',function  () {
+        .directive('tweet',function  () {
             return {
                 restrict: 'E',
                  templateUrl: function(elem,attrs) {
-                   return '/static/angular/discussions/partialviews/resources.html';
+                   return '/js/mod_nowplay/partialviews/tweet.html';
                 },
-                controller: 'ResourcesViewController',
             }
         })
 

@@ -4,6 +4,7 @@ var app = express();
 var http = require('http').Server(app);
 var Twit = require('twit');
 var io = require('socket.io')(http);
+
 //Twit Configuration
 var T = new Twit({
   consumer_key:'CXVNsTDohsJaIxl0cjpuLKXYr',
@@ -28,11 +29,7 @@ app.get('/caramba', function(req, res){
 //Post  tweet Method
 app.get('/tweet-it', function(req, res){
   var tw_msg=req.query.message;
-
   T.post('statuses/update', { status: tw_msg }, function(err, data, response) {
-    console.log('errors'+err);
-    console.log('data'+data);
-    console.log('response'+response);
     if(err){
       res.send(err);
     }
@@ -43,15 +40,26 @@ app.get('/tweet-it', function(req, res){
 
 });
 //Get tweet streams
-io.on('streamtw', function(socket){
-  socket.on('disconnect', function(){
-    console.log('stream stopped');
-  });
-  var stream = T.stream('statuses/filter', { track: '#apple', language: 'en' })
+io.on('connection', function (socket) {
+  console.log('Streaming Tweets');
+ var stream = T.stream('statuses/filter', { track: '#nowplaying'})
   stream.on('tweet', function (tweet) {
-    console.log(tweet)
-  })
-});
+    emit_tw=false;
+    urls=tweet.entities.urls;
+    for(var u in urls){
+      yt=urls[u].display_url;
+      if (yt.indexOf("youtube.com") !=-1) {
+        yt=yt.replace('https://www.youtube.com/watch?v=','');
+        io.sockets.emit('stream',tweet,yt);
+      }
+      else if(yt.indexOf("youtu.be") !=-1){
+        yt=yt.replace('https://youtu.be/','');
+        io.sockets.emit('stream',tweet,yt);
+      }
+    }
+  });
+ });
+
 http.listen(3000, function(){
   console.log('#nowplaying is running on http://localhost:3000');
 });
