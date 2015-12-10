@@ -23,7 +23,6 @@ app.get('/', function(req, res){
 //URLs to get twitter info
 app.get('/caramba', function(req, res){
  T.get('search/tweets', { q: '#apple', count: 5 }, function(err, data, response) {
-  console.log(data);
 });
 });
 //Post  tweet Method
@@ -41,7 +40,6 @@ app.get('/tweet-it', function(req, res){
 });
 //Get tweet streams
 io.on('connection', function (socket) {
-  console.log('Streaming Tweets');
   //to prevent defaults
   var id_checker=[];
  var stream = T.stream('statuses/filter', { track: '#nowplaying'})
@@ -53,14 +51,12 @@ io.on('connection', function (socket) {
       if (yt.indexOf("youtube.com") !=-1 && id_checker.indexOf(tweet.id) == -1) {
         yt_id=yt.replace('youtube.com/watch?v=','');
         io.sockets.emit('stream',tweet,yt_id);
-        console.log('I am streaming a tweet from @'+tweet.user.screen_name);
         id_checker[id_checker.length]=tweet.id;
         break;
       }
       else if(yt.indexOf("youtu.be") !=-1 && id_checker.indexOf(tweet.id) == -1){
         yt_id=yt.replace('youtu.be/','');
         io.sockets.emit('stream',tweet,yt_id);
-        console.log('I am streaming a tweet from @'+tweet.user.screen_name);
         id_checker[id_checker.length]=tweet.id;
         break;
       }
@@ -68,6 +64,4 @@ io.on('connection', function (socket) {
   });
  });
 
-http.listen(3000, function(){
-  console.log('#nowplaying is running on http://localhost:3000');
-});
+http.listen(3000);
