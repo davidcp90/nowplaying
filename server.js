@@ -45,22 +45,22 @@ io.on('connection', function (socket) {
  var stream = T.stream('statuses/filter', { track: '#nowplaying'})
   stream.on('tweet', function (tweet) {
     urls=tweet.entities.urls;
-
-    for(var u in urls){
+    breakfor: for(var u in urls){
       yt=urls[u].display_url;
       if (yt.indexOf("youtube.com") !=-1 && id_checker.indexOf(tweet.id) == -1) {
         yt_id=yt.replace('youtube.com/watch?v=','');
         io.sockets.emit('stream',tweet,yt_id);
         id_checker[id_checker.length]=tweet.id;
-        break;
+        break breakfor;
       }
       else if(yt.indexOf("youtu.be") !=-1 && id_checker.indexOf(tweet.id) == -1){
         yt_id=yt.replace('youtu.be/','');
         io.sockets.emit('stream',tweet,yt_id);
         id_checker[id_checker.length]=tweet.id;
-        break;
+        break breakfor;
       }
     }
+    
   });
  });
 
